@@ -1,0 +1,47 @@
+﻿@if (ViewBag.Success != null)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>@ViewBag.Success</strong>
+            </div>
+        </div>
+    </div>
+}
+
+@if (ViewBag.Soon != null)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-warning">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>@ViewBag.Soon</strong>
+            </div>
+        </div>
+    </div>
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>@ViewBag.Error</strong>
+            </div>
+        </div>
+    </div>
+}
+
+@if (ViewBag.Late != null)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>@ViewBag.Late</strong>
+            </div>
+        </div>
+    </div>
+}

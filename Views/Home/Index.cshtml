@@ -1,0 +1,159 @@
+﻿@using System.Text
+@using System.Text.RegularExpressions
+@using HappyMeal_v3.Services
+@using HappyMeal_v3.ViewModels
+@model MenuViewModel
+
+@{
+    ViewBag.Title = "Accueil";
+}
+
+@Html.Partial("_Error")
+
+@{
+    var fish = ConfigurationService.GetValue("fish")?.Split(';') ?? new string[0];
+    var sand = ConfigurationService.GetValue("sand")?.Split(';') ?? new string[0];
+}
+
+@if (ViewBag.Late == null && Model != null)
+{
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="list-group">
+                        <p class="list-group-item list-title">Les entrées</p>
+                        @foreach (var starter in Model.Starters)
+                        {
+                            <p class="list-group-item list-item starters choice" data-id=@starter.Index data-value="starter">
+                                <span class="left">
+                                    <span id=@starter.Index class="number"></span>
+                                </span>
+                                <span class="center">
+                                    <span id="text">@starter.Text</span>
+                                </span>
+                            </p>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="list-group">
+                        <p class="list-group-item list-title">Les plats</p>
+                        @foreach (var dish in Model.Dishes)
+                        {
+                            <p class="list-group-item list-item dishes choice" data-id=@dish.Index data-value=@(fish.Any(dish.Text.ToLower().Contains) ? "dish-fish" : "dish")>
+                                <span class="left">
+                                    <span id=@dish.Index class="number"></span>
+                                </span>
+                                <span class="center">
+                                    @{
+                                        var text = dish.Text;
+                                        if (Regex.Matches(text, "hamburger", RegexOptions.IgnoreCase).Count > 1)
+                                        {
+                                            text = Regex.Replace(text, "hamburger", string.Empty, RegexOptions.IgnoreCase);
+                                            text = $"Hamburger {text}";
+                                        }
+                                        var matches = Regex.Matches(text, @"\w+(\s+ou\s+\w+)+", RegexOptions.IgnoreCase);
+                                        foreach (Match match in matches)
+                                        {
+                                            var txt = new StringBuilder();
+                                            txt.Append("<span class=\"multichoice\">");
+                                            var idx = 0;
+                                            foreach (Match word in Regex.Matches(match.Value, @"\w+"))
+                                            {
+                                                if (word.Value.Equals("ou", StringComparison.CurrentCultureIgnoreCase))
+                                                {
+                                                    txt.Append($" {word.Value} ");
+                                                    continue;
+                                                }
+                                                txt.Append($"<span class=\"selectable\" data-id=\"{idx}\">{word.Value}</span>");
+                                                idx += 1;
+
+                                            }
+                                            txt.Append("</span>");
+                                            text = text.Replace(match.Groups[0].Value, txt.ToString());
+                                        }
+                                    }
+                                    <span id="text">@Html.Raw(text)</span>
+                                </span>
+                            </p>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="list-group">
+                        <p class="list-group-item list-title">Les desserts</p>
+                        @foreach (var dessert in Model.Desserts)
+                        {
+                            <p class="list-group-item list-item desserts choice" data-id=@dessert.Index data-value="dessert">
+                                <span class="left">
+                                    <span id=@dessert.Index class="number"></span>
+                                </span>
+                                <span class="center">
+                                    <span id="text">@dessert.Text</span>
+                                </span>
+                            </p>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="list-group">
+                        <p class="list-group-item list-title">Les sandwiches</p>
+                        @foreach (var sandwich in Model.Sandwiches)
+                        {
+                            <p class="list-group-item list-item sandwiches choice" data-id=@sandwich.Index data-value=@(sand.Any(sandwich.Text.ToLower().Contains) ? "sandwich-fish" : "sandwich")>
+                                <span class="left">
+                                    <span id=@sandwich.Index class="number"></span>
+                                </span>
+                                <span class="center">
+                                    <span id="text">@sandwich.Text</span>
+                                </span>
+                            </p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="list-group">
+                        <p class="list-group-item list-title choice">Les boissons</p>
+                        @foreach (var drink in Model.Drinks)
+                        {
+                            <p class="col-md-3 col-sm-4 list-group-item list-item drinks choice" data-id=@drink.Index data-value="drink">
+                                <span class="left">
+                                    <span id=@drink.Index class="number"></span>
+                                </span>
+                                <span class="center">
+                                    <span id="text">@drink.Text</span>
+                                </span>
+                            </p>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="list-group">
+                        <p class="list-group-item list-title choice">Les suppléments</p>
+                        @foreach (var extra in Model.Extras)
+                        {
+                            var text = extra == Extra.Bread ? "Pain" : "Couverts";
+
+                            <p class="list-group-item list-item extras" data-id=@((int)extra) data-value="extra-@extra.ToString().ToLower()">
+                                <span class="left">
+                                    <span id=@((int)extra) class="number"></span>
+                                </span>
+                                <span class="center">
+                                    <span id="text">@text</span>
+                                </span>
+                            </p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
