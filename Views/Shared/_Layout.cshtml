@@ -1,4 +1,5 @@
 ﻿@using HappyMeal_v3.Services
+@using HappyMeal_v3.ViewModels
 @model HappyMeal_v3.ViewModels.BaseViewModel
 
 <!DOCTYPE html>
@@ -15,19 +16,22 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-    <body>
-        <div class="container body-content">
-            @Html.Partial("_Header", Model.HeaderData)
-            @RenderBody()
-            @Html.Partial("_Order")
-        </div>
+<body>
+    <div class="container body-content">
+        @Html.Partial("_Account", new AccountViewModel())
+        @RenderBody()
+        @Html.Partial("_Header", Model.HeaderData)
+        @Html.Partial("_Order")
+    </div>
 
-        <script type="text/javascript">
+    <script type="text/javascript">
             var baseUrl = "@(ConfigurationService.GetValue("baseUrl") ?? "")";
-        </script>
-        <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
-        <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script type="text/javascript" src="~/js/site.js"></script>
-        @RenderSection("scripts", required: false)
-    </body>
+    </script>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
 </html>
