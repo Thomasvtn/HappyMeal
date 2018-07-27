@@ -1,20 +1,28 @@
 ﻿@using HappyMeal_v3.ViewModels
 @model AccountViewModel
 
-<form method="post" asp-action="Authentication" asp-controller="Account">
+<head>
+    <script src="~/js/site.js" type="text/javascript"></script>
+</head>
 
-    <label for="Email">Email :</label>
-    <input asp-for="Email" />
-    <span asp-validation-for="Email" class="text-danger"></span>
+<div class="row">
+    <div id="account">
+        <form method="post" asp-action="Authentication" asp-controller="Account">
 
-    <label for="Pseudo">Pseudo :</label>
-    <input asp-for="Pseudo" placeholder="Ex: Arthur ptit zizi" />
-    <span asp-validation-for="Pseudo" class="text-danger"></span>
+            <label for="Email" id="email">Email :</label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
 
-    <label for="Password">Mot de passe :</label>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password" class="text-danger"></span>
+            <label for="Pseudo" id="pseudo">Pseudo :</label>
+            <input asp-for="Pseudo" placeholder="Ex: Arthur ptit zizi" />
+            <span asp-validation-for="Pseudo" class="text-danger"></span>
 
-    <button type="submit">Valider</button>
+            <label for="Password" id="password">Mot de passe :</label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
 
-</form>
+            <button type="submit" id="validation">Valider</button>
+
+        </form>
+    </div>
+</div>

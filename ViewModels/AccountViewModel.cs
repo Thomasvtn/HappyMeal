@@ -15,5 +15,6 @@ namespace HappyMeal_v3.ViewModels
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
     }
 }

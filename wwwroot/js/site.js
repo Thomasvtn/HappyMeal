@@ -330,4 +330,14 @@
         else
             $(".price-bar").removeClass("price-bar-fixed");
     });
+
+    $("#btn-connection").click(function () {
+        $.ajax({
+            type: "GET",
+            url: baseUrl + "Account/Account",
+            success: function (e) {
+                $("#connection").html(e);
+            }
+        });
+    });
 });

@@ -1,7 +1,7 @@
 ﻿@using System.Globalization
 @using HappyMeal_v3.ViewModels
 @using HappyMeal_v3.Services
-@model HeaderViewModel
+@model BaseViewModel
 
 @{
     var dayOfWeek = DateTime.Now.ToString("dddd", new CultureInfo("fr-FR"));
@@ -16,7 +16,7 @@
 			<div class="col-md-3 col-sm-3">
                 <div id="fete">
                     <span id="today">Fêtes du jour</span>
-                    <span id="name">@Model.TodayFete</span>
+                    <span id="name">@Model.HeaderData.TodayFete</span>
                 </div>
 				@*<div id="hours">
                     <span id="hour">11h38</span>
@@ -31,10 +31,21 @@
 			    <span id="date">@char.ToUpper(dayOfWeek[0])@dayOfWeek.Substring(1) @day @char.ToUpper(month[0])@month.Substring(1) @year</span>
 			</div>
 			<div class="col-md-3 col-sm-3 price-bar">
-				<div id="price">
-					<span id="value">0</span><span id="unit">€</span>
-				</div>
+                <div id="price">
+                    <span id="value">0</span><span id="unit">€</span>
+                    @if (Model.User == null)
+                    {
+                        <button id="btn-connection" >Connexion</button>
+                    }
+                    else
+                    {
+                        <span id="hello">Salut @Model.User.Pseudo ! </span>
+                    }
+                </div>
 			</div>
+                <div class="row">
+                    <div class="col-md-12" id="connection"></div>
+                </div>
 		</div> 
 	</div>
 </div>

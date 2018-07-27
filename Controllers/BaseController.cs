@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using ParserHtml;
 using HappyMeal_v3.Services;
+using Microsoft.AspNetCore.Http;
+using HappyMeal_v3.Extensions;
+using HappyMeal_v3.Models;
 
 namespace HappyMeal_v3.Controllers
 {
@@ -60,6 +63,9 @@ namespace HappyMeal_v3.Controllers
                 {
                     TodayFete = h1.Text.Substring(index + 7).Trim()
                 };
+
+                var user = HttpContext.Session.GetObject<User>("user");
+                model.User = user;
             }
         }
     }
