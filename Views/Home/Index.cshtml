@@ -26,6 +26,7 @@
                         @foreach (var starter in Model.Starters)
                         {
                             <p class="list-group-item list-item starters choice" data-id=@starter.Index data-value="starter">
+                                    <span class="mark-button"></span>
                                 <span class="left">
                                     <span id=@starter.Index class="number"></span>
                                 </span>
@@ -43,6 +44,7 @@
                         @foreach (var dish in Model.Dishes)
                         {
                             <p class="list-group-item list-item dishes choice" data-id=@dish.Index data-value=@(fish.Any(dish.Text.ToLower().Contains) ? "dish-fish" : "dish")>
+                                    <span class="mark-button"></span>
                                 <span class="left">
                                     <span id=@dish.Index class="number"></span>
                                 </span>
@@ -88,6 +90,7 @@
                         @foreach (var dessert in Model.Desserts)
                         {
                             <p class="list-group-item list-item desserts choice" data-id=@dessert.Index data-value="dessert">
+                                    <span class="mark-button"></span>
                                 <span class="left">
                                     <span id=@dessert.Index class="number"></span>
                                 </span>
@@ -105,6 +108,7 @@
                         @foreach (var sandwich in Model.Sandwiches)
                         {
                             <p class="list-group-item list-item sandwiches choice" data-id=@sandwich.Index data-value=@(sand.Any(sandwich.Text.ToLower().Contains) ? "sandwich-fish" : "sandwich")>
+                                    <span class="mark-button"></span>
                                 <span class="left">
                                     <span id=@sandwich.Index class="number"></span>
                                 </span>
@@ -123,14 +127,15 @@
                         <p class="list-group-item list-title choice">Les boissons</p>
                         @foreach (var drink in Model.Drinks)
                         {
-                            <p class="col-md-3 col-sm-4 list-group-item list-item drinks choice" data-id=@drink.Index data-value="drink">
-                                <span class="left">
-                                    <span id=@drink.Index class="number"></span>
-                                </span>
-                                <span class="center">
-                                    <span id="text">@drink.Text</span>
-                                </span>
-                            </p>
+                        <p class="col-md-3 col-sm-4 list-group-item list-item drinks choice" data-id=@drink.Index data-value="drink">
+                                <span class="mark-button"></span>
+                            <span class="left">
+                                <span id=@drink.Index class="number"></span>
+                            </span>
+                            <span class="center">
+                                <span id="text">@drink.Text</span>
+                            </span>
+                        </p>
                         }
                     </div>
                 </div>
@@ -141,8 +146,8 @@
                         @foreach (var extra in Model.Extras)
                         {
                             var text = extra == Extra.Bread ? "Pain" : "Couverts";
-
                             <p class="list-group-item list-item extras" data-id=@((int)extra) data-value="extra-@extra.ToString().ToLower()">
+                                    <span class="mark-button"></span>
                                 <span class="left">
                                     <span id=@((int)extra) class="number"></span>
                                 </span>

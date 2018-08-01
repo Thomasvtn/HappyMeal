@@ -340,4 +340,30 @@
             }
         });
     });
+
+    $(document).on("click", ".mark_button", function () {
+        var button = $(this).data("id");
+        var food = $(this).closest(".choice").data("id");   
+        $.ajax({
+            type: "POST",
+            data: { "model.Mark" : button, "model.Food" : food },
+            url: baseUrl + "Mark/SaveMark"
+        });
+    });
+
+    $(".list-item").mouseenter(function () {
+        var e = $(this).find(".mark-button");
+        $.ajax({
+            type: "POST",
+            url: baseUrl + "Mark/MarkIt",
+            success: function (data) {
+                $(e).html(data);
+            }
+        });
+    });
+
+    $(".list-item").mouseleave(function () {
+        var e = $(this).find(".mark-button");
+        $(e).html("");
+    });
 });

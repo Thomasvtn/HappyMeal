@@ -13,7 +13,6 @@ namespace HappyMeal_v3.Controllers
         [HttpPost]
         public IActionResult Authentication(AccountViewModel model)
         {
-
             if (DataBase.Verifie("C:/Users/adelamare/Downloads/Thomas aka le stagiaire/HappyMeal_v3/HappyMeal_v3/DataBase.txt", model.Pseudo, model.Password, model.Email))
                 {
                     var user = new User
@@ -24,13 +23,6 @@ namespace HappyMeal_v3.Controllers
                     };
 
                     HttpContext.Session.SetObject("user", user);
-
-                    var viewmodel = new ConnectedViewModel
-                    {
-                        Pseudo = model.Pseudo
-                    };
-
-                    //return View("_Connected", viewmodel);
 
                 }
 
