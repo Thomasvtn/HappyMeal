@@ -25,15 +25,21 @@
                         <p class="list-group-item list-title">Les entrées</p>
                         @foreach (var starter in Model.Starters)
                         {
-                            <p class="list-group-item list-item starters choice" data-id=@starter.Index data-value="starter">
-                                    <span class="mark-button"></span>
-                                <span class="left">
-                                    <span id=@starter.Index class="number"></span>
+                        <p class="list-group-item list-item starters choice" data-id=@starter.Index data-value="starter">
+                            <span class="mark-button"></span>
+                            <span class="left">
+                                <span id=@starter.Index class="number"></span>
+                            </span>
+                            <span class="center">
+                                <span id="text">@starter.Text</span>
+                            </span>
+                            @if (Marks_Datase.mark_recup(starter.Index) != 0)
+                            {
+                                <span class="right">
+                                    <span id="actual_mark">@Marks_Datase.mark_recup(starter.Index)</span>
                                 </span>
-                                <span class="center">
-                                    <span id="text">@starter.Text</span>
-                                </span>
-                            </p>
+                            }
+                        </p>
                         }
                     </div>
                 </div>
@@ -79,6 +85,14 @@
                                     }
                                     <span id="text">@Html.Raw(text)</span>
                                 </span>
+                                <span class="right">
+                                    @if (Marks_Datase.mark_recup(dish.Index) != 0)
+                                    {
+                                        <span class="right">
+                                            <span id="actual_mark">@Marks_Datase.mark_recup(dish.Index)</span>
+                                        </span>
+                                    }
+                                </span>
                             </p>
                         }
                     </div>
@@ -97,6 +111,14 @@
                                 <span class="center">
                                     <span id="text">@dessert.Text</span>
                                 </span>
+                                <span class="right">
+                                    @if (Marks_Datase.mark_recup(dessert.Index) != 0)
+                                    {
+                                        <span class="right">
+                                            <span id="actual_mark">@Marks_Datase.mark_recup(dessert.Index)</span>
+                                        </span>
+                                    }
+                                </span>
                             </p>
                         }
                     </div>
@@ -114,6 +136,14 @@
                                 </span>
                                 <span class="center">
                                     <span id="text">@sandwich.Text</span>
+                                </span>
+                                <span class="right">
+                                    @if (Marks_Datase.mark_recup(sandwich.Index) != 0)
+                                    {
+                                        <span class="right">
+                                            <span id="actual_mark">@Marks_Datase.mark_recup(sandwich.Index)</span>
+                                        </span>
+                                    }
                                 </span>
                             </p>
                         }
@@ -135,6 +165,14 @@
                             <span class="center">
                                 <span id="text">@drink.Text</span>
                             </span>
+                            <span class="right">
+                                @if (Marks_Datase.mark_recup(drink.Index) != 0)
+                                {
+                                    <span class="right">
+                                        <span id="actual_mark">@Marks_Datase.mark_recup(drink.Index)</span>
+                                    </span>
+                                }
+                            </span>
                         </p>
                         }
                     </div>
@@ -153,6 +191,14 @@
                                 </span>
                                 <span class="center">
                                     <span id="text">@text</span>
+                                </span>
+                                <span class="right">
+                                    @if (Marks_Datase.mark_recup(((int)extra)) != 0)
+                                    {
+                                        <span class="right">
+                                            <span id="actual_mark">@Marks_Datase.mark_recup(((int)extra))</span>
+                                        </span>
+                                    }
                                 </span>
                             </p>
                         }

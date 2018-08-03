@@ -246,6 +246,11 @@
         background-color: #0e9c57;
     }
 
+.list-item .right {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .rating {
     text-align: center;
     direction: rtl;
@@ -364,7 +369,7 @@
     }
 
 
-.left, .center {
+.left, .center, .right {
     display: table-cell;
     vertical-align: middle;
     padding-top: 11px;
@@ -403,7 +408,7 @@
     border-top: 1px solid #f1f1f1;
 }
 
-.right {
+/*.right {
     display: none;
     color: #000;
     vertical-align: middle;
@@ -414,7 +419,7 @@
     .right .delete {
         padding: 0 20px;
         font-weight: 400;
-    }
+    }*/
 
 .selectable {
     color: #9e9e9e;

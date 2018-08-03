@@ -50,5 +50,13 @@ namespace HappyMeal_v3.Services
                 File.AppendAllText("C:/Users/adelamare/Downloads/Thomas aka le stagiaire/HappyMeal_v3/HappyMeal_v3/Marks.txt", json);
             }
         }
+
+        public static int mark_recup(int food)
+        {
+            string json_dico = File.ReadAllText("C:/Users/adelamare/Downloads/Thomas aka le stagiaire/HappyMeal_v3/HappyMeal_v3/Marks.txt");
+            Dictionary<string, int> dico = JsonConvert.DeserializeObject<Dictionary<string, int>>(json_dico);
+            dico.TryGetValue(food.ToString(), out int mark);
+            return mark;
+        }
     }
 }

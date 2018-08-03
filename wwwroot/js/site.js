@@ -357,7 +357,7 @@
             type: "POST",
             url: baseUrl + "Mark/MarkIt",
             success: function (data) {
-                $(e).html(data);
+                if ((".list-item").onmouseover = $(e).html(data));
             }
         });
     });
