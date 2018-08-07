@@ -341,6 +341,16 @@
         });
     });
 
+    $("#btn-registration").click(function () {
+        $.ajax({
+            type: "GET",
+            url: baseUrl + "Account/Registration2",
+            success: function (e) {
+                $("#registration").html(e);
+            }
+        });
+    });
+
     $(document).on("click", ".mark_button", function () {
         var button = $(this).data("id");
         var food = $(this).closest(".choice").data("id");   
