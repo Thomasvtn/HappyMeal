@@ -6,7 +6,7 @@ using System.Text;
 
 namespace HappyMeal_v3.Services
 {
-    public class DataBase : CryptClass
+    public class DataBase 
     {
         private byte[] _iv;
         private byte[] _key;

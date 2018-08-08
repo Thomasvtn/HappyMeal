@@ -1,0 +1,11 @@
+C:\Users\adelamare\Documents\GitHub\HappyMeal\HappyMeal_v3\obj\Debug\netcoreapp2.0\HappyMeal_v3.csprojResolveAssemblyReference.cache
+C:\Users\adelamare\Documents\GitHub\HappyMeal\HappyMeal_v3\obj\Debug\netcoreapp2.0\HappyMeal_v3.csproj.CoreCompileInputs.cache
+C:\Users\adelamare\Documents\GitHub\HappyMeal\HappyMeal_v3\obj\Debug\netcoreapp2.0\HappyMeal_v3.AssemblyInfoInputs.cache
+C:\Users\adelamare\Documents\GitHub\HappyMeal\HappyMeal_v3\obj\Debug\netcoreapp2.0\HappyMeal_v3.AssemblyInfo.cs
+C:\Users\adelamare\Documents\GitHub\HappyMeal\HappyMeal_v3\bin\Debug\netcoreapp2.0\HappyMeal_v3.deps.json
+C:\Users\adelamare\Documents\GitHub\HappyMeal\HappyMeal_v3\bin\Debug\netcoreapp2.0\HappyMeal_v3.runtimeconfig.json
+C:\Users\adelamare\Documents\GitHub\HappyMeal\HappyMeal_v3\bin\Debug\netcoreapp2.0\HappyMeal_v3.runtimeconfig.dev.json
+C:\Users\adelamare\Documents\GitHub\HappyMeal\HappyMeal_v3\bin\Debug\netcoreapp2.0\HappyMeal_v3.dll
+C:\Users\adelamare\Documents\GitHub\HappyMeal\HappyMeal_v3\bin\Debug\netcoreapp2.0\HappyMeal_v3.pdb
+C:\Users\adelamare\Documents\GitHub\HappyMeal\HappyMeal_v3\obj\Debug\netcoreapp2.0\HappyMeal_v3.dll
+C:\Users\adelamare\Documents\GitHub\HappyMeal\HappyMeal_v3\obj\Debug\netcoreapp2.0\HappyMeal_v3.pdb
